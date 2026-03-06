@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   res.send("Backend is running");
 });
 
-app.post('/login/:id', (req, res) => {
+app.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   console.log(email,password);
