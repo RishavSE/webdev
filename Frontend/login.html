@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="signup.css">
 </head>
 
 <body>
-    <form id="loginForm" novalidate>
-        <h1 class="heading-login">Login Page</h1>
-        <label for="username" class="l1">Username:</label>
-        <input type="email" id="username" required>
-        <small class="error" id="emailError"></small><br><br>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" required>
-        <small class="error" id="passwordError"></small><br><br>
 
-        <button type="submit" class="submitbutton">Submit</button><br>
+<div class="mainCard">
+
+    <form id="loginForm" class="loginForm" novalidate>
+        <h1>Login</h1>
+
+        <label for="username" class="heading">Username</label>
+        <input type="email" id="username" required>
+        <small class="error" id="emailError"></small>
+
+        <label for="password" class="heading">Password</label>
+        <input type="password" id="password" required>
+        <small class="error" id="passwordError"></small>
+
+        <button type="submit" class="submitbutton">Submit</button>
+
         <p class="successLogin"></p>
         <p class="errorLogin"></p>
-        <a href="index.html">Back</a>
+
+        <div class="link">
+            <a href="signup.html">Sign-up</a>
+        </div>
     </form>
+
+    <div class="sidePhoto">
+        <img src="./images.jpeg" class="image" alt="Login Image">
+    </div>
+
+</div>
+
 <script src="script.js"></script>
 
 </body>

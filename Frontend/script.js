@@ -10,34 +10,31 @@ formHandle.addEventListener("submit", async (e) => {
     const res = await fetch("http://localhost:5000/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }),
     });
     const data = await res.json();
     console.log(data);
 
-    if(data.success){
+    if (data.success) {
       localStorage.setItem("email", email);
       console.log("Email:", email);
       console.log("Password:", password);
 
       const successMessage = document.querySelector(".successLogin");
       successMessage.textContent = "Login successful!";
-      setTimeout(()=>{
+      setTimeout(() => {
         window.location.href = "index.html";
-      },1000);
+      }, 1000);
     }
-    if(data.success === false){
+    if (data.success === false) {
       const errorMessage = document.querySelector(".errorLogin");
       errorMessage.textContent = "Invalid email or password. Please try again.";
-      setTimeout(()=>{
-        // window.location.href = "login.html";
+      setTimeout(() => {
         errorMessage.textContent = "";
-      },1000);
-      // errorMessage.textContent = ".";
+      }, 1000);
     }
-
   } catch (error) {
     console.error("Error:", error);
   }
