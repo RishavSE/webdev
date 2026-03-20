@@ -19,6 +19,7 @@ formHandle.addEventListener("submit", async (e) => {
 
     if (data.success) {
       localStorage.setItem("email", email);
+      localStorage.setItem("token":token);
       console.log("Email:", email);
       console.log("Password:", password);
 
