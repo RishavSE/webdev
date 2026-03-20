@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import fs from "fs";
+import jwt from "jsonwebtoken";
 
 const app = express();
 const PORT = 5000;
@@ -24,6 +25,11 @@ app.post("/login", (req, res) => {
   const user = users.find(
     (u) => u.email === email && u.password === password
   );
+  const token= jwt.sign(
+    {email: email},
+    "Rishav@123",
+    {expireIN : "1h"}
+  );
 
   if (!user) {
     return res.status(401).json({
@@ -34,6 +40,7 @@ app.post("/login", (req, res) => {
 
   return res.status(200).json({
     success: true,
+    token:token,
     message: "Login successful",
   });
 });
@@ -65,6 +72,8 @@ app.post("/signup", (req, res) => {
     message: "Signup successful",
   });
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
